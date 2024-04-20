@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="center">
+			<div class="center-heading">
+				<h1>LIBRARY</h1>
+				<button class="black-button" id="openPopupButton">Add book</button>
+			</div>
+		</div>
+
+		<div class="card-popup" id="cardPopup">
+			<span class="close-button" onclick="closePopup()">&times;</span>
+			<form id="bookForm">
+				<label for="bookName">Book Name:</label><br />
+				<input type="text" id="bookName" name="bookName" /><br /><br />
+
+				<label for="author">Author:</label><br />
+				<input type="text" id="author" name="author" /><br /><br />
+
+				<label for="pages">Number of Pages:</label>
+				<input type="number" id="pages" name="pages" /><br /><br />
+
+				<label for="status">Status:</label>
+				<select id="status" name="status">
+					<option value="read">Read</option>
+					<option value="unread">Unread</option></select
+				><br /><br />
+				<button class="black-button" id="add-button" type="button">Add</button>
+			</form>
+		</div>
+
+        <div id="overlay"></div>
+
+		<div class="card-container">
+			<div class="card">
+				<div class="top">
+					<img
+						src="https://source.boringavatars.com/beam/140/Mariaewe%40?square"
+						alt="Book Cover"
+					/>
+					<span class="close-button1" onclick="removeCard(this)">&times;</span>
+				</div>
+				<div class="card-content">
+					<h2>Spy Family</h2>
+					<p>Tatsuya Endo</p>
+					<p>Number of Pages: <span>499</span></p>
+					<p>Status: <span>Read</span></p>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="top">
+					<img
+						src="https://source.boringavatars.com/beam/120/Maria%20Mitbwehty?square"
+						alt="Book Cover"
+					/>
+					<span class="close-button1" onclick="removeCard(this)">&times;</span>
+				</div>
+				<div class="card-content">
+					<h2>Chainshaw Man</h2>
+					<p>Tatsuki Fujimoto</p>
+					<p>Number of Pages: <span>299</span></p>
+					<p>Status: <span>Unread</span></p>
+				</div>
+			</div>
+		</div>
+
+		<script src="./script.js"></script>
+	</body>
+</html>
