@@ -24,12 +24,20 @@ function removeCard(button) {
 
 const myLibrary = [];
 
-function Book(title, author, noOfPages, read) {
-	this.title = title;
-	this.author = author;
-	this.noOfPages = noOfPages;
-	this.read = read;
+class Book {
+	constructor(title, author, noOfPages, read) {
+		this.title = title;
+		this.author = author;
+		this.noOfPages = noOfPages;
+		this.read = read;
+	}
 }
+// function Book(title, author, noOfPages, read) {
+// 	this.title = title;
+// 	this.author = author;
+// 	this.noOfPages = noOfPages;
+// 	this.read = read;
+// }
 
 function addBookToLibrary(a) {
 	myLibrary.push(a);
@@ -65,8 +73,8 @@ btn.addEventListener("click", () => {
 	const pages = document.querySelector("#pages").value;
 	const status = document.querySelector("#status").value;
 
-	const b = new Book(title, author, pages, status);
-	addBookToLibrary(b);
+	const book = new Book(title, author, pages, status);
+	addBookToLibrary(book);
 	console.log(myLibrary);
 
 	// Create HTML for new card
