@@ -1,4 +1,17 @@
 
+fetch("http://localhost:3000/books")
+	.then((response) => response.json())
+	.then((data) => {
+		const selectElement = document.getElementById("bookName");
+		data.forEach((book) => {
+			const option = document.createElement("option");
+			option.value = book.title;
+			option.textContent = book.title;
+			selectElement.appendChild(option);
+		});
+	});
+
+
 const btn = document.querySelector("#add-button");
 const btnSelect = document.querySelector(".black-button");
 const card = document.querySelector(".card");
@@ -24,12 +37,20 @@ function removeCard(button) {
 
 const myLibrary = [];
 
-function Book(title, author, noOfPages, read) {
-	this.title = title;
-	this.author = author;
-	this.noOfPages = noOfPages;
-	this.read = read;
+class Book {
+	constructor(title, author, noOfPages, read) {
+		this.title = title;
+		this.author = author;
+		this.noOfPages = noOfPages;
+		this.read = read;
+	}
 }
+// function Book(title, author, noOfPages, read) {
+// 	this.title = title;
+// 	this.author = author;
+// 	this.noOfPages = noOfPages;
+// 	this.read = read;
+// }
 
 function addBookToLibrary(a) {
 	myLibrary.push(a);
@@ -65,8 +86,8 @@ btn.addEventListener("click", () => {
 	const pages = document.querySelector("#pages").value;
 	const status = document.querySelector("#status").value;
 
-	const b = new Book(title, author, pages, status);
-	addBookToLibrary(b);
+	const book = new Book(title, author, pages, status);
+	addBookToLibrary(book);
 	console.log(myLibrary);
 
 	// Create HTML for new card
@@ -84,7 +105,7 @@ btn.addEventListener("click", () => {
             </div>
         </div>
     `;
-    
+
 	cardContainer.innerHTML += newCardHTML;
 
 	closePopup();
