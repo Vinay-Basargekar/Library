@@ -1,4 +1,17 @@
 
+fetch("http://localhost:3000/books")
+	.then((response) => response.json())
+	.then((data) => {
+		const selectElement = document.getElementById("bookName");
+		data.forEach((book) => {
+			const option = document.createElement("option");
+			option.value = book.title;
+			option.textContent = book.title;
+			selectElement.appendChild(option);
+		});
+	});
+
+
 const btn = document.querySelector("#add-button");
 const btnSelect = document.querySelector(".black-button");
 const card = document.querySelector(".card");
@@ -92,7 +105,7 @@ btn.addEventListener("click", () => {
             </div>
         </div>
     `;
-    
+
 	cardContainer.innerHTML += newCardHTML;
 
 	closePopup();

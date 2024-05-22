@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Library-add books</title>
-        <link rel="icon" href="https://fav.farm/🔥" />
+		<link rel="icon" href="https://fav.farm/🔥" />
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
@@ -19,13 +19,16 @@
 			<span class="close-button" onclick="closePopup()">&times;</span>
 			<form id="bookForm">
 				<label for="bookName">Book Name:</label><br />
-				<input type="text" id="bookName" name="bookName" /><br /><br />
+				<select id="bookName" name="bookName"></select
+				><br /><br />
+				<!-- <label for="bookName">Book Name:</label><br />
+				<input type="text" id="bookName" name="bookName" /><br /><br /> -->
 
 				<label for="author">Author:</label><br />
 				<input type="text" id="author" name="author" /><br /><br />
 
 				<label for="pages">Number of Pages:</label>
-				<input type="number" id="pages" name="pages" /><br /><br />
+				<input type="number" id="pages" name="pages" readonly /><br /><br />
 
 				<label for="status">Status:</label>
 				<select id="status" name="status">
@@ -36,7 +39,7 @@
 			</form>
 		</div>
 
-        <div id="overlay"></div>
+		<div id="overlay"></div>
 
 		<div class="card-container">
 			<div class="card">
