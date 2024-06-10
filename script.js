@@ -1,5 +1,4 @@
 
-
 const btn = document.querySelector("#add-button");
 const btnSelect = document.querySelector(".black-button");
 const card = document.querySelector(".card");
@@ -32,6 +31,31 @@ class Book {
 		this.noOfPages = noOfPages;
 		this.read = read;
 	}
+	addBookToLibrary(a) {
+		myLibrary.push(a);
+		return myLibrary.length;
+	}
+	generateRandomName() {
+		const names = [
+			"Vinayy%20Bagekar",
+			"John%20Doe",
+			"Alice%20Smith",
+			"Bob%20Johnson",
+			"Emma%20Wilson",
+			"Michael%20Jones",
+			"Sophia%20Brown",
+			"Daniel%20Garcia",
+		];
+		const randomName = names[Math.floor(Math.random() * names.length)];
+
+		// Generate random colors
+		const colors = ["264653", "2a9d8f", "e9c46a", "f4a261", "e76f51"];
+		const randomColors = colors
+			.slice(0, Math.floor(Math.random() * colors.length) + 1)
+			.join(",");
+
+		return `${randomName}?colors=${randomColors}&square`;
+	}
 }
 // function Book(title, author, noOfPages, read) {
 // 	this.title = title;
@@ -40,33 +64,33 @@ class Book {
 // 	this.read = read;
 // }
 
-function addBookToLibrary(a) {
-	myLibrary.push(a);
-	return myLibrary.length;
-}
+// function addBookToLibrary(a) {
+// 	myLibrary.push(a);
+// 	return myLibrary.length;
+// }
 
 // Generate a random name
-function generateRandomName() {
-	const names = [
-		"Vinayy%20Bagekar",
-		"John%20Doe",
-		"Alice%20Smith",
-		"Bob%20Johnson",
-		"Emma%20Wilson",
-		"Michael%20Jones",
-		"Sophia%20Brown",
-		"Daniel%20Garcia",
-	];
-	const randomName = names[Math.floor(Math.random() * names.length)];
+// function generateRandomName() {
+// 	const names = [
+// 		"Vinayy%20Bagekar",
+// 		"John%20Doe",
+// 		"Alice%20Smith",
+// 		"Bob%20Johnson",
+// 		"Emma%20Wilson",
+// 		"Michael%20Jones",
+// 		"Sophia%20Brown",
+// 		"Daniel%20Garcia",
+// 	];
+// 	const randomName = names[Math.floor(Math.random() * names.length)];
 
-	// Generate random colors
-	const colors = ["264653", "2a9d8f", "e9c46a", "f4a261", "e76f51"];
-	const randomColors = colors
-		.slice(0, Math.floor(Math.random() * colors.length) + 1)
-		.join(",");
+// 	// Generate random colors
+// 	const colors = ["264653", "2a9d8f", "e9c46a", "f4a261", "e76f51"];
+// 	const randomColors = colors
+// 		.slice(0, Math.floor(Math.random() * colors.length) + 1)
+// 		.join(",");
 
-	return `${randomName}?colors=${randomColors}&square`;
-}
+// 	return `${randomName}?colors=${randomColors}&square`;
+// }
 
 btn.addEventListener("click", () => {
 	const title = document.querySelector("#bookName").value;
@@ -75,14 +99,14 @@ btn.addEventListener("click", () => {
 	const status = document.querySelector("#status").value;
 
 	const book = new Book(title, author, pages, status);
-	addBookToLibrary(book);
+	book.addBookToLibrary(book);
 	console.log(myLibrary);
 
 	// Create HTML for new card
 	const newCardHTML = `
         <div class="card">
             <div class="top">
-                <img src="https://source.boringavatars.com/beam/120/${generateRandomName()}" alt="Book Cover" />
+                <img src="https://source.boringavatars.com/beam/120/${book.generateRandomName()}" alt="Book Cover" />
                 <span class="close-button1" onclick="removeCard(this)">&times;</span>
             </div>
             <div class="card-content">
