@@ -76,6 +76,10 @@ body {
 	}
 }
 
+#bookName{
+	width: 90%;
+}
+
 .center {
 	display: flex;
 	align-items: center;
