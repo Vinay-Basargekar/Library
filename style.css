@@ -80,6 +80,9 @@ body {
 	.space{
 		margin-bottom: 1rem;
 	}
+	#status{
+		margin-top: 5px;
+	}
 }
 
 .error{
