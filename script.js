@@ -1,4 +1,3 @@
-
 const btn = document.querySelector("#add-button");
 const btnSelect = document.querySelector(".black-button");
 const card = document.querySelector(".card");
@@ -9,12 +8,12 @@ const cardPopup = document.getElementById("cardPopup");
 
 openPopupButton.addEventListener("click", () => {
 	cardPopup.style.display = "block";
-    overlay.style.display = "block";
+	overlay.style.display = "block";
 });
 
 function closePopup() {
 	cardPopup.style.display = "none";
-    overlay.style.display = "none"; 
+	overlay.style.display = "none";
 }
 
 function removeCard(button) {
@@ -122,3 +121,74 @@ btn.addEventListener("click", () => {
 
 	closePopup();
 });
+
+//login form validation
+
+const form = document.getElementById("form");
+const openLoginPage = document.getElementById("openLoginPage");
+const LoginCardpopup = document.getElementById("LoginCardPop");
+
+openLoginPage.addEventListener("click", () => {
+	LoginCardpopup.style.display = "block";
+	overlay.style.display = "block";
+});
+
+function closeLoginPopup() {
+	LoginCardpopup.style.display = "none";
+	overlay.style.display = "none";
+}
+
+document.getElementById("mail").addEventListener("input", clearEmailError);
+document
+	.getElementById("password")
+	.addEventListener("input", clearPasswordError);
+
+function validateForm() {
+	var email = document.getElementById("mail").value;
+	var password = document.getElementById("password").value;
+	var emailError = document.getElementById("emailError");
+	var passwordError = document.getElementById("passwordError");
+
+	var valid = true;
+
+	// Validate email
+	if (!validateEmail(email)) {
+		emailError.textContent = "Please enter a valid email address.";
+		emailError.style.display = "block";
+		valid = false;
+	}
+
+	// Validate password
+	if (password === "") {
+		passwordError.textContent = "Password is required.";
+		passwordError.style.display = "block";
+		valid = false;
+	} else if (password.length < 6) {
+		document.getElementById("passwordError").innerText =
+			"Password must be at least 6 characters long.";
+		valid = false;
+	}
+
+	return valid;
+}
+
+function validateEmail(email) {
+	var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	return re.test(String(email).toLowerCase());
+}
+
+function clearEmailError() {
+	var email = document.getElementById("mail").value;
+	var emailError = document.getElementById("emailError");
+	if (validateEmail(email)) {
+		emailError.style.display = "none";
+	}
+}
+
+function clearPasswordError() {
+	var password = document.getElementById("password").value;
+	var passwordError = document.getElementById("passwordError");
+	if (password.length >= 6) {
+		passwordError.style.display = "none";
+	}
+}

@@ -67,19 +67,25 @@ body {
 	background-color: #333;
 }
 
-#bookForm {
+#bookForm,#loginForm {
 	margin: 10px;
 	width: 20rem;
 	font-size: 1rem;
 	input {
 		width: 90%;
+		border: 1px solid #878585;
+		padding: 5px;
+		margin-top: 5px;
+	}
+	.space{
+		margin-bottom: 1rem;
 	}
 }
 
-/* #bookName{
-	width: 90%;
-} */
-
+.error{
+	display: none;
+	color: red;
+}
 .center {
 	display: flex;
 	align-items: center;
@@ -89,12 +95,12 @@ body {
 		font-size: 3rem;
 		font-weight: 900;
 	}
-	button {
+	/* button {
 		margin-left: 3rem;
-	}
+	} */
 }
 
-.card-popup {
+.card-popup,.LoginCard-Popup {
 	display: none;
 	position: fixed;
 	top: 50%;
